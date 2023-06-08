@@ -35,9 +35,9 @@ func (s *UserManagementServer) CreatePcSpecs(ctx context.Context, specin *pb.PcS
 	log.Printf("Os Version : %v", specin.GetOsVersion())
 	log.Printf("Os Arch : %v", specin.GetOsArch())
 	log.Printf("Number of Cpu Cores : %v", specin.GetNumberCpuCores())
-	log.Printf("Total Disk Space : %v", specin.GetTotalSpace())
-	log.Printf("Used Disk Space : %v", specin.GetHostname())
-	log.Printf("Free Disk Space : %v", specin.GetFreeSpace())
+	log.Printf("Total Disk Space : %.2f GB", specin.GetTotalSpace())
+	log.Printf("Used Disk Space : %.2f GB", specin.GetUsedSpace())
+	log.Printf("Free Disk Space : %.2f GB", specin.GetFreeSpace())
 	var returnmsg = "PC Specifications received from Client..."
 	return &pb.PcSpecsResponse{Message: returnmsg}, nil
 }
