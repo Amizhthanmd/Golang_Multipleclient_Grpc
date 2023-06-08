@@ -29,7 +29,15 @@ func (s *UserManagementServer) CreateNewUser(ctx context.Context, in *pb.NewUser
 }
 
 func (s *UserManagementServer) CreatePcSpecs(ctx context.Context, specin *pb.PcSpecs) (*pb.PcSpecsResponse, error) {
+	
 	log.Printf("Hostname : %v", specin.GetHostname())
+	log.Printf("Os Name : %v", specin.GetOsName())
+	log.Printf("Os Version : %v", specin.GetOsVersion())
+	log.Printf("Os Arch : %v", specin.GetOsArch())
+	log.Printf("Number of Cpu Cores : %v", specin.GetNumberCpuCores())
+	log.Printf("Total Disk Space : %v", specin.GetTotalSpace())
+	log.Printf("Used Disk Space : %v", specin.GetHostname())
+	log.Printf("Free Disk Space : %v", specin.GetFreeSpace())
 	var returnmsg = "PC Specifications received from Client..."
 	return &pb.PcSpecsResponse{Message: returnmsg}, nil
 }
