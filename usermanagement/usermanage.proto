@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package usermanagement;
+
+option go_package = "github.com/Amizhthanmd/Golang_Multipleclient_Grpc/usermanagement";
+
+service UserManagement {
+
+    rpc CreateNewUser (NewUser) returns (User) {}
+    rpc CreatePcSpecs (PcSpecs) returns (PcSpecsResponse) {}
+
+}
+
+message NewUser {
+    string name = 1;
+    int32 age = 2;
+}
+
+message User {
+    string name = 1;
+    int32 age = 2;
+    int32 id = 3;
+}
+
+message PcSpecs {
+    string hostname = 1;
+    string os_name = 2;
+    string os_version =3;
+    string os_arch =4;
+    int32 number_cpu_cores =5;
+    double total_space =6;
+    double used_space =7;
+    double free_space =8;
+}
+
+message PcSpecsResponse{
+    string message =1;
+}
+
